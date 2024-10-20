@@ -7,19 +7,18 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class SignUpFreeActivity : AppCompatActivity() {
+class PrivacyPolicyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up_free)
+        setContentView(R.layout.activity_privacy_policy)
 
         val backArrow: ImageView = findViewById(R.id.backArrow)
         backArrow.setOnClickListener {
             finish()
         }
-
-        val btnSignUpLogin: Button = findViewById(R.id.nextButton)
+        val btnSignUpLogin: Button = findViewById(R.id.createAccount)
         btnSignUpLogin.setOnClickListener {
-            val intent = Intent(this, CreatePasswordActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

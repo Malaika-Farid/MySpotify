@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1a1a1a"
+    android:padding="16dp">
+
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="Back"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Create Account Heading -->
+    <TextView
+        android:id="@+id/tvCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create account"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- What's Your Name Heading -->
+    <TextView
+        android:id="@+id/tvGenderQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What’s your name?"
+        android:textSize="35sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/tvCreateAccount"
+        android:layout_marginTop="45dp" />
+
+    <!-- EditText for User Name -->
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGenderQuestion"
+        android:layout_marginTop="16dp"
+        android:background="#333030"
+        android:hint="Enter your name"
+        android:textColor="@android:color/black"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This appears on your Spotify profile."
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/etUserName"
+        android:layout_marginTop="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#95a5a6"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By tapping 'Create Account', you agree to Spotify Terms of use."
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/tvCreateAccount"
+        android:layout_marginTop="200dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms of Use"
+        android:textSize="15sp"
+        android:textColor="#309935"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/tvCreateAccount"
+        android:layout_marginTop="255dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To learn more about how Spotify collects, uses, shares and protects your personal data, please use Spotify Privacy Policy."
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/tvCreateAccount"
+        android:layout_marginTop="285dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Privacy Policy"
+        android:textSize="15sp"
+        android:textColor="#309935"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_below="@id/tvCreateAccount"
+        android:layout_marginTop="370dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="I would prefer not to receive marketing messages from 'Spotify'" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Share my registration data with Spotify's content providers for marketing purposes." />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:backgroundTint="#D3CECE"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="570dp"/>
+</RelativeLayout>

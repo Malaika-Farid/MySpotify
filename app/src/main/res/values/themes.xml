@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MySpotify" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="bottomNavigationStyle">@style/NoActiveIndicatorBottomNav</item>
         <item name="colorPrimary">#CED3D0</item> <!-- Set primary color to white -->
         <item name="colorOnPrimary">@color/black</item> <!-- Set onPrimary color if needed -->
         <item name="colorSecondary">@color/white</item> <!-- Optionally set secondary color -->

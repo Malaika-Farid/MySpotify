@@ -11,6 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySpotify"
         tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -22,10 +33,6 @@
         </activity>
         <activity android:name=".SignUpActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".SignUpFreeActivity"
@@ -34,6 +41,17 @@
         <activity android:name=".LogInActivity"
             android:exported="false" />
 
+        <activity android:name=".CreatePasswordActivity"
+            android:exported="false" />
+
+        <activity android:name=".PrivacyPolicyActivity"
+            android:exported="false" />
+
+        <activity android:name=".GenderSelectionActivity"
+            android:exported="false"/>
+
+        <activity android:name=".AddAccountActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

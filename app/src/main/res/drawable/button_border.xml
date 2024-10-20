@@ -6,7 +6,7 @@
     <!-- Border (Stroke) -->
     <stroke
         android:width="2dp"
-        android:color="#C7E0D0" />  <!-- Spotify Green Border -->
+        android:color="#8F9491" />  <!-- Spotify Green Border -->
 
     <!-- Rounded Corners (Optional) -->
     <corners android:radius="30dp" />
