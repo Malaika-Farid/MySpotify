@@ -56,6 +56,120 @@
 
     </FrameLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To get you started"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Horizontal ScrollView for Recommendations -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="150dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Example Recommendation Cards -->
+            <ImageView
+                android:id="@+id/ali_zafar"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/bollywood"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/peaceful"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/sad"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/selena"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Try something else"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="350dp"
+        android:padding="10dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Horizontal ScrollView for Recommendations -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="400dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Example Recommendation Cards -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/bollywood"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/peaceful"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/sad"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:src="@drawable/selena"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

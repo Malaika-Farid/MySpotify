@@ -50,15 +50,29 @@ class HomeFragment : Fragment() {
                 }
                 R.id.nav_item2 -> {
                     // Handle the second item
+                    replaceFragment(WhatsNewFragment())
                     true
                 }
                 R.id.nav_item3 -> {
-                    // Handle the third item
+                    replaceFragment(ProfileFragment())
+                    true
+                }
+                R.id.nav_item4 -> {
+                    replaceFragment(SettingsFragment())
                     true
                 }
                 else -> false
             }
         }
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        // Get the parent fragment manager or activity's fragment manager
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment) // Use the ID of your container
+            .addToBackStack(null) // Optional: add to backstack
+            .commit()
+    }
+}
 
 //        val headerLayout = LayoutInflater.from(context).inflate(R.layout.nav_header, null)
 //
@@ -77,5 +91,4 @@ class HomeFragment : Fragment() {
 //        val parentLayout = view.findViewById<LinearLayout>(R.id.nav_view) // Adjust to your layout
 //        parentLayout.addView(headerLayout)
 
-    }
-}
+

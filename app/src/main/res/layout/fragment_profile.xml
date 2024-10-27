@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:background="#121212"
+    android:padding="24dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_account"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="Malaika Farid"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/follower_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_below="@id/profile_name"
+        android:layout_marginLeft="32dp"
+        android:text="0 followers · 0 following"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:backgroundTint="#D3CECE"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_marginTop="32dp"
+        android:text="Edit" />
+
+    <ImageView
+        android:id="@+id/three_dots"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="165dp"
+        android:layout_toRightOf="@id/edit_button"
+        android:contentDescription="Menu"
+        android:src="@drawable/ic_dots" />
+
+    <TextView
+        android:id="@+id/no_recent_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="No recent activity"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
+
