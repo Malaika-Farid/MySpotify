@@ -28,7 +28,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/artistType"
+            android:id="@+id/artistCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Artist"

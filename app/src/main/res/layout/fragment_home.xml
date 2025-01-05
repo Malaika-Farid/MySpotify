@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Container for Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="104dp"
@@ -22,12 +21,11 @@
             android:orientation="horizontal"
             android:paddingLeft="20dp"
             android:paddingTop="40dp">
-
             <!-- Circle Button -->
             <Button
                 android:id="@+id/button_circle"
                 android:layout_width="40dp"
-                android:layout_height="42dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/circular_button"
                 android:text="M"
@@ -63,55 +61,20 @@
         android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="90dp"
         android:padding="10dp"
         android:layout_marginBottom="8dp" />
 
     <!-- Horizontal ScrollView for Recommendations -->
-    <HorizontalScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_recommendations1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
+        android:layout_marginTop="140dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginTop="150dp"
-        android:paddingBottom="8dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Example Recommendation Cards -->
-            <ImageView
-                android:id="@+id/ali_zafar"
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/bollywood"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/peaceful"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/sad"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/selena"
-                android:scaleType="centerCrop" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        tools:listitem="@layout/song_item" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,54 +83,21 @@
         android:textColor="@android:color/white"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="340dp"
         android:padding="10dp"
         android:layout_marginBottom="8dp" />
 
     <!-- Horizontal ScrollView for Recommendations -->
-    <HorizontalScrollView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_recommendations2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
+        android:layout_marginTop="390dp"
         android:paddingHorizontal="10dp"
-        android:layout_marginTop="400dp"
-        android:paddingBottom="8dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Example Recommendation Cards -->
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/bollywood"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/peaceful"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/sad"
-                android:layout_marginEnd="8dp"
-                android:scaleType="centerCrop" />
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="180dp"
-                android:src="@drawable/selena"
-                android:scaleType="centerCrop" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        tools:listitem="@layout/song_item" />
 
 
     <!-- Navigation Drawer -->

@@ -2,20 +2,25 @@ package com.example.myspotify
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myspotify.R
 import com.example.myspotify.adapters.ArtistAdapter
 import com.example.myspotify.models.Artist
+import com.example.myspotify.models.Song
 import com.google.android.material.navigation.NavigationView
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LibraryFragment : Fragment() {
 
@@ -23,6 +28,8 @@ class LibraryFragment : Fragment() {
     private lateinit var artistAdapter: ArtistAdapter
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var auth: FirebaseAuth
+    private val firestore = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,38 +43,34 @@ class LibraryFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerViewArtists)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        auth = FirebaseAuth.getInstance()
 
-        // Sample artist list
-        val artists = listOf(
-            Artist("Ali Zafar", "Artist", R.drawable.ali_zafar),
-            Artist("Arijit Singh", "Artist", R.drawable.arijit_singh),
-            Artist("Atif Aslam", "Artist", R.drawable.atif_aslam)
-        )
+        // Get the current user
+        val user = auth.currentUser
 
-        artistAdapter = ArtistAdapter(artists)
+        // Update the username in the navigation header
+        updateNavHeader(view, user)
+        artistAdapter = ArtistAdapter(emptyList())
         recyclerView.adapter = artistAdapter
 
-        drawerLayout = view.findViewById(R.id.drawer_layout) // Ensure your DrawerLayout has this ID
+        // Fetch data from Firestore
+        fetchArtistsFromFirestore()
+
+        drawerLayout = view.findViewById(R.id.drawer_layout)
         navView = view.findViewById(R.id.nav_view)
 
         val circleButton: Button = view.findViewById(R.id.button_circle)
         circleButton.setOnClickListener {
-            // Open the drawer when the circle button is clicked
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-
-        // Optionally, set up the navigation view item selection listener
         navView.setNavigationItemSelectedListener { menuItem ->
-            // Handle navigation view item clicks here
             when (menuItem.itemId) {
                 R.id.nav_item1 -> {
-                    val intent = Intent(requireActivity(), AddAccountActivity::class.java) // or activity
-                    startActivity(intent)
+                    startActivity(Intent(requireActivity(), AddAccountActivity::class.java))
                     true
                 }
                 R.id.nav_item2 -> {
-                    // Handle the second item
                     replaceFragment(WhatsNewFragment())
                     true
                 }
@@ -83,11 +86,54 @@ class LibraryFragment : Fragment() {
             }
         }
     }
+    private fun updateNavHeader(view: View, user: FirebaseUser?) {
+        val navView: NavigationView = view.findViewById(R.id.nav_view)
+        val headerView = navView.getHeaderView(0)
+        val currUserTextView: TextView = headerView.findViewById(R.id.currUser)
+        currUserTextView.text = user?.displayName ?: "Guest"
+        val buttonCirle : Button = headerView.findViewById(R.id.button_circle)
+        val firstLetter = user?.displayName?.take(1)?.uppercase() ?: "G" // "G" for Guest
+        buttonCirle.text = firstLetter
+    }
     private fun replaceFragment(fragment: Fragment) {
-        // Get the parent fragment manager or activity's fragment manager
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment) // Use the ID of your container
-            .addToBackStack(null) // Optional: add to backstack
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
             .commit()
+    }
+
+    private fun fetchArtistsFromFirestore() {
+        Toast.makeText(context, "Fetching artists...", Toast.LENGTH_SHORT).show()
+        Log.d("LibraryFragment", "Starting Firestore fetch.")
+
+        firestore.collection("Artists")
+            .get()
+            .addOnSuccessListener { documents ->
+                Toast.makeText(context, "Artists fetched successfully!", Toast.LENGTH_SHORT).show()
+                Log.d("LibraryFragment", "Fetched ${documents.size()} artists.")
+
+                val artists = documents.mapNotNull {
+                    try {
+                        it.toObject(Artist::class.java).also {
+                            Log.d("LibraryFragment", "Artist fetched: $it")
+                        }
+                    } catch (e: Exception) {
+                        Log.e("LibraryFragment", "Error mapping artist: ${e.message}")
+                        null
+                    }
+                }
+
+                if (artists.isNotEmpty()) {
+                    artistAdapter.updateArtists(artists)
+                    Toast.makeText(context, "Displaying ${artists.size} artists.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "No artists found in Firestore.", Toast.LENGTH_SHORT).show()
+                    Log.d("LibraryFragment", "No artists found.")
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "Failed to fetch artists: ${e.message}", Toast.LENGTH_SHORT).show()
+                Log.e("LibraryFragment", "Error fetching artists from Firestore: ${e.message}")
+            }
     }
 }

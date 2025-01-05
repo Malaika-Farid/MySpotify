@@ -51,17 +51,17 @@
         android:textAllCaps="false"
         android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/signupFacebookButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background = "@drawable/button_border"
-        android:text="Continue with Facebook"
-        android:layout_marginTop="463dp"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textAllCaps="false"
-        android:layout_marginBottom="16dp" />
+<!--    <Button-->
+<!--        android:id="@+id/signupFacebookButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background = "@drawable/button_border"-->
+<!--        android:text="Continue with Facebook"-->
+<!--        android:layout_marginTop="463dp"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:layout_marginBottom="16dp" />-->
 
     <Button
         android:id="@+id/signupLogInButton"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
         android:text="Log in"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="470dp"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textAllCaps="false"

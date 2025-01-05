@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import com.example.myspotify.R
 
 import androidx.appcompat.app.AppCompatActivity
 
